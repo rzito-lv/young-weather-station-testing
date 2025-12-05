@@ -1,6 +1,6 @@
 .PHONY: setup run clean
 
-PYTHON ?= python3
+PYTHON ?= python3.13
 
 setup:
 	$(PYTHON) -m venv .venv

@@ -14,6 +14,7 @@ ser = open_serial_port(SERIAL_PORT, BAUDRATE)
 
 try:
     # Continuously read from the serial port
+    print("Starting to read data from serial port...")
     while True:
         if ser.in_waiting > 0:
             line = ser.readline().decode('ascii', errors='replace').strip()

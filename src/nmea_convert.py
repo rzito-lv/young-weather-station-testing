@@ -10,6 +10,7 @@ def parse_wimwv(sentence):
     data, checksum = sentence[7:].split('*')
     fields = data.split(',')
     parsed_data = {
+        'Timestamp': datetime.now(),
         'Wind_angle_deg': float(fields[0]) if fields[0] else None,
         'Reference': fields[1],
         'Wind_speed': float(fields[2]) if fields[2] else None,
@@ -25,6 +26,7 @@ def parse_yxxdr(sentence):
     data, checksum = sentence[7:].split('*')
     fields = data.split(',')
     parsed_data = {
+        'Timestamp': datetime.now(),
         'Relative_wind_chill_temp_C': float(fields[1]) if fields[1] else None,
         'Relative_wind_chill_unit': fields[2],
         'Relative_wind_chill_ID': fields[3],
@@ -46,6 +48,7 @@ def parse_wimda(sentence):
     data, checksum = sentence[7:].split('*')
     fields = data.split(',')
     parsed_data = {
+        'Timestamp': datetime.now(),
         'Barometric_pressure_inHg': float(fields[0]) if fields[0] else None,
         'Pressure_unit_inHg': fields[1],
         'Barometric_pressure_bars': float(fields[2]) if fields[2] else None,
@@ -103,6 +106,7 @@ def parse_wixdr(sentence):
             print(
                 f"Warning: Unknown transducer type '{transducer_type}' in WIXDR sentence."
             )
+    parsed_data["Timestamp"] = datetime.now()
 
     return pd.DataFrame([parsed_data])
 

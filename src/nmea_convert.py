@@ -1,6 +1,8 @@
 import pandas as pd
 from datetime import datetime
 
+"""Module to parse NMEA sentences into structured DataFrame rows."""
+
 def parse_wimwv(sentence):
     """Parse an NMEA WIMWV sentence into a structured DataFrame row."""
     if not sentence.startswith("$WIMWV"):

@@ -1,5 +1,7 @@
 import serial
 
+"""Module to handle serial port operations."""
+
 def open_serial_port(port, baudrate=4800, timeout=1):
     """Open and return a serial port connection."""
     ser = serial.Serial(port, baudrate, timeout=timeout)

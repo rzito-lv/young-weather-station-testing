@@ -26,7 +26,7 @@ try:
                 data_list.append(parsed_data)
                 print(f"Parsed Data:\n{parsed_data}\n")
                 # Save parsed data
-                save_data(parsed_data.iloc[0].to_dict())
+                save_data(parsed_data)
             except ValueError as e:
                 print(f"Error parsing sentence: {e}")
 

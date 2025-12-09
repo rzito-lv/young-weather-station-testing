@@ -1,12 +1,16 @@
 import csv
 import pandas as pd
+import os
 from datetime import datetime
 
 """Module to save data to files."""
 
 def save_data(parsed_data: pd.DataFrame, directory="data"):
     """Save parsed data to CSV files based on datetime."""
-    
+    # Check if directory exists, create if not
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
     timestamp = parsed_data.index[0]
 
     if timestamp is None:

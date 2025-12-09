@@ -25,6 +25,8 @@ def save_data(parsed_data: pd.DataFrame, directory="data"):
 def write_to_csv(filename, parsed_data):
     """Write parsed data to a CSV file."""
     # Check if file exists to write header
+    print("Parsed Data: ", parsed_data)
+    data_dict = parsed_data.iloc[0].to_dict()
     file_exists = False
     try:
         with open(filename, 'x') as f:
@@ -33,10 +35,10 @@ def write_to_csv(filename, parsed_data):
         file_exists = True; # File already exists
     
     with open(filename, 'a', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=parsed_data.keys())
+        writer = csv.DictWriter(csvfile, fieldnames=data_dict.keys())
         
         if not file_exists:
             writer.writeheader()
         
-        writer.writerow({k: v for k, v in parsed_data.items()})
+        writer.writerow({k: v for k, v in data_dict.items()})
         print(f"Data saved to {filename}.")

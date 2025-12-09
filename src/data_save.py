@@ -20,12 +20,13 @@ def save_data(parsed_data: pd.DataFrame, directory="data"):
 
 def write_to_csv(filename, parsed_data):
     """Write parsed data to a CSV file."""
+    # Check if file exists to write header
     file_exists = False
     try:
-        with open(filename, 'r') as f:
-            file_exists = True
-    except FileNotFoundError:
-        pass
+        with open(filename, 'x') as f:
+            file_exists = False;
+    except FileExistsError:
+        file_exists = True; # File already exists
     
     with open(filename, 'a', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=parsed_data.keys())

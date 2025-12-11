@@ -7,7 +7,7 @@ A python project to field test the Young Weather station
 2. To enable the service to restart automatically, run `sudo systemctl enable weather-station.service`
 3. To start the service and begin parsing and saving data, run `sudo systemctl start weather-station.service`
 4. To check logs and output of the script, run `sudo journalctl -u weather-station.service`
-5. To download data onto your local computer, run this command on your computer `scp -r -P Port admin@ipaddress:/mnt/sdcard/<date>/* ./destination_folder`
+5. To download data onto your local computer, run this command on your computer `scp -r -P Port admin@ipaddress:~/Documents/young-weather-station-testing/data/<date>/* ./destination_folder`
 
 
 ### Initialization

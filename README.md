@@ -1,6 +1,15 @@
 # young-weather-station-testing
 A python project to field test the Young Weather station
 
+
+### SSH into Cyclops and run script
+1. In Soracom, find Cyclops CY020 (sim 8942310022006073179) and ssh in. Use the credentials in 1Pass
+2. To enable the service to restart automatically, run `sudo systemctl enable weather-station.service`
+3. To start the service and begin parsing and saving data, run `sudo systemctl start weather-station.service`
+4. To check logs and output of the script, run `sudo journalctl -u weather-station.service`
+5. To download data onto your local computer, run this command on your computer `scp -r -P Port admin@ipaddress:/mnt/sdcard/<date>/* ./destination_folder`
+
+
 ### Initialization
 When setting up the script, run the following command to set up the virtual environment:
 ```bash
